@@ -14,7 +14,6 @@ export function useLogin() {
             const accessToken = await postLogin(email,password);
             localStorage.setItem('accessToken' , accessToken);
             console.log('로그인 성공');
-            return true;
         }
         catch(error) {
             if(axios.isAxiosError(error)){
@@ -22,7 +21,6 @@ export function useLogin() {
                 console.error("로그인 실패" ,error)
             }
             localStorage.removeItem('accessToken');
-            return false;
         }
         finally {
             setLoading(false);    
