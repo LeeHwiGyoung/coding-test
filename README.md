@@ -35,17 +35,17 @@
     <img src="./card-example.jpg" height="500">
 </div>
 
-- **메인 이미지**: 
+- **메인 이미지**:
   `{S3_URL}/{s3Path}` 경로를 통해 이미지를 가져옵니다.
-- **카드 정보 출력**: 
+- **카드 정보 출력**:
   API 응답값을 바탕으로 카드 내용을 구성합니다.
-- **Status 변경**: 
+- **Status 변경**:
   드롭다운을 통해 {status}값을 변경할 수 있습니다.(`waiting`, `completed`, `failed`)
-- **이미지 모달**: 
+- **이미지 모달**:
   메인 이미지를 클릭하면 확대된 이미지가 모달로 표시됩니다.
-- **클릭 시간 기록**: 
+- **클릭 시간 기록**:
   카드가 클릭되어있는 시간을 초 단위로 측정하고 `{seconds}` 값을 변경합니다.
-- **Save 버튼**: 
+- **Save 버튼**:
   status 및 timer 값을 API를 통해 저장합니다.
 
 ### 3. README 작성
@@ -61,26 +61,26 @@
 - **API Base URL**
   `https://dev-eks-api.patho.kr`
 
-> *아래 명세는 과제 구현에 필요한 속성만 발췌한 예시입니다.*
+> _아래 명세는 과제 구현에 필요한 속성만 발췌한 예시입니다._
 
 ### 1. 로그인 API
 
 - **Endpoint**: `/v2/users/login`
 - **Method**: `POST`
 - **Request**
-    ```json
-    {
-      "email": "string",
-      "password": "string"
-    }
-    ```
+  ```json
+  {
+    "email": "string",
+    "password": "string"
+  }
+  ```
 - **Response**
-    ```json
-    {
-      "accessToken": "string",
-      ...
-    }
-    ```
+  ```json
+  {
+    "accessToken": "string",
+    ...
+  }
+  ```
 
 ---
 
@@ -91,31 +91,31 @@
 - **Method**: `GET`
 - **Authorization**: Bearer Token (`accessToken`)
 - **Response**
-    ```json
-    {
-      ...
-      "images": [
-        {
-          "_id": "string",
-          "caseName": "string",
-          "status": "string",
+  ```json
+  {
+    ...
+    "images": [
+      {
+        "_id": "string",
+        "caseName": "string",
+        "status": "string",
+        ...
+        "originalFileName": "string",
+        "info": {
+          "format": "string",
+          "width": number,
+          "height": number,
           ...
-          "originalFileName": "string",
-          "info": {
-            "format": "string",
-            "width": number,
-            "height": number,
-            ...
-          },
-          "createdAt": "string",
-          ...
-          "s3Path": "string",
-          ...
-        }
-      ],
-      ...
-    }
-    ```
+        },
+        "createdAt": "string",
+        ...
+        "s3Path": "string",
+        ...
+      }
+    ],
+    ...
+  }
+  ```
 
 ---
 
@@ -126,30 +126,32 @@
 - **Authorization**: Bearer Token (`accessToken`)
 
 - **GET Response**
-    ```json
-    {
-      "imageId": "string",
-      "seconds": "string",
-      ...
-    }
-    ```
+
+  ```json
+  {
+    "imageId": "string",
+    "seconds": "string",
+    ...
+  }
+  ```
 
 - **POST Request**
-    ```json
-    {
-      "imageId": "string",
-      "seconds": "string"
-    }
-    ```
+
+  ```json
+  {
+    "imageId": "string",
+    "seconds": "string"
+  }
+  ```
 
 - **POST Response**
-    ```json
-    {
-      "imageId": "string",
-      "seconds": "string",
-      ...
-    }
-    ```
+  ```json
+  {
+    "imageId": "string",
+    "seconds": "string",
+    ...
+  }
+  ```
 
 ---
 
@@ -161,11 +163,11 @@
 - **Authorization**: Bearer Token (`accessToken`)
 - **Query Parameter**: `status` (`waiting`, `completed`, `failed`)
 - **Response**
-    ```json
-    {
-      "message": "string"
-    }
-    ```
+  ```json
+  {
+    "message": "string"
+  }
+  ```
 
 ---
 
@@ -173,7 +175,7 @@
 
 모든 구현 내용 push 완료 후 개인 저장소 링크를 **hcan@aivis.kr**로 전달합니다.
 
-> ***fork**가 아닌 **clone**하여 개인 저장소에 private 권한으로 생성한 경우 **hcan@aivis.kr** 계정을 collaborators에 초대해주셔야 확인 가능 합니다.*
+> **\*fork**가 아닌 **clone**하여 개인 저장소에 private 권한으로 생성한 경우 **hcan@aivis.kr** 계정을 collaborators에 초대해주셔야 확인 가능 합니다.\*
 
 ---
 
